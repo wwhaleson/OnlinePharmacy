@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlinePharmacy.Server", "OnlinePharmacy\Server\OnlinePharmacy.Server.csproj", "{7B6BA300-ED70-4371-BF52-30659C66B3FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlinePharmacy.Client", "OnlinePharmacy\Client\OnlinePharmacy.Client.csproj", "{0CC04983-FE0F-4690-BC33-0AE1C6E9C262}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlinePharmacy.Shared", "OnlinePharmacy\Shared\OnlinePharmacy.Shared.csproj", "{903DE474-09C4-4B25-BAE5-5B04BBF48125}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B6BA300-ED70-4371-BF52-30659C66B3FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B6BA300-ED70-4371-BF52-30659C66B3FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B6BA300-ED70-4371-BF52-30659C66B3FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B6BA300-ED70-4371-BF52-30659C66B3FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CC04983-FE0F-4690-BC33-0AE1C6E9C262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CC04983-FE0F-4690-BC33-0AE1C6E9C262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CC04983-FE0F-4690-BC33-0AE1C6E9C262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CC04983-FE0F-4690-BC33-0AE1C6E9C262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{903DE474-09C4-4B25-BAE5-5B04BBF48125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{903DE474-09C4-4B25-BAE5-5B04BBF48125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{903DE474-09C4-4B25-BAE5-5B04BBF48125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{903DE474-09C4-4B25-BAE5-5B04BBF48125}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {159D681A-F4EC-4D1A-9772-2D361911D4A1}
+	EndGlobalSection
+EndGlobal
