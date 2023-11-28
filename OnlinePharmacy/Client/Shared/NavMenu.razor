@@ -28,44 +28,43 @@
     </nav>
 </div>
 -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
         <!-- Logo and Pharmacy Name -->
-        <i class="bi bi-capsule"></i>
         <a class="navbar-brand" href="/1.jpg">Farmacy</a>
 
         <!-- Navbar Toggle Button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" @onclick="ToggleNavMenu">
+            <i class="bi bi-list"></i>
         </button>
 
         <!-- Navigation Links -->
-        <div class="collapse navbar-collapse " id="navbarNav">
+        <div class="collapse navbar-collapse @NavMenuCssClass pd-2 t" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <i class="bi bi-bag-plus"></i>
-                    <a class="nav-link pt-0" href="#">Your Cart</a>            
+                    <a class="nav-link pt-0" href="#">Your Cart</a>
                 </li>
                 <li class="nav-item">
                     <i class="bi bi-person"></i>
-                    <a class="nav-link pt-0" href="#">My Account</a>      
+                    <a class="nav-link pt-0" href="#">My Account</a>
                 </li>
             </ul>
         </div>
-
     </div>
 </nav>
-
-
 
 @code {
     private bool collapseNavMenu = true;
 
+    // Calculate the CSS class based on the collapseNavMenu state
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
+    // Toggle the collapseNavMenu state when the navbar toggler button is clicked
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
     }
 }
+

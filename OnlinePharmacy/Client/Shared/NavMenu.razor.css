@@ -50,19 +50,10 @@
     background-color: rgba(255,255,255,0.1);
     color: white;
 }
-
-@media (min-width: 641px) {
-    .navbar-toggler {
-        display: none;
-    }
-
-    .collapse {
-        /* Never collapse the sidebar for wide screens */
+*/
 
 /* Navbar styles */
-.navbar {
-    height: 90px;
-}
+
 .navbar-brand {
     color: #000 !important; /* Black text color for the brand */
 }
@@ -76,7 +67,7 @@
 }
 
 .navbar-nav .navbar-item:hover {
-    color: red !important; /* Dark gray color for navigation links on hover */
+    color: red !important; 
 }
 
 /* Navbar item styles */
@@ -87,9 +78,25 @@
 }
 
 .navbar-nav .bi-bag-plus {
-    font-size: 2rem; /* Adjust the font size for the cart icon */
+    font-size: 2rem; 
 }
 
 .navbar-nav .bi-person {
-    font-size: 2rem; /* Adjust the font size for the user icon */
+    font-size: 2rem; 
+}
+.navbar {
+    background-color: red;
+}
+.custom-navbar-collapse {
+    background-color: green;
+}
+
+@media (min-width:1000px) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .collapse {
+        /* Styles applied when the viewport width is 641 pixels or more */
+    }
 }
