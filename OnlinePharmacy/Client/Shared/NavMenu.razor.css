@@ -52,51 +52,61 @@
 }
 */
 
-/* Navbar styles */
-
+/* Styles for the brand/logo in the navbar */
 .navbar-brand {
-    color: #000 !important; /* Black text color for the brand */
+    color:#FFF !important; /* Set the color of the brand/logo text to black */
+    font-weight:900;
+    font-size:40px;
 }
 
-.navbar-toggler-icon {
-    background-color: #fff; /* White color for the toggler icon */
-}
-
+/* Styles for the navigation links in the navbar */
 .navbar-nav .nav-link {
-    color: #000 !important; /* Black color for navigation links */
+    color: #000 !important; /* Set the color of the navigation links to black */
 }
 
+/* Styles for the navbar item on hover */
 .navbar-nav .navbar-item:hover {
-    color: red !important; 
+    color: lightskyblue !important; /* Set the color of the navbar item on hover to lightskyblue */
 }
-
+.navbar-nav{
+    position:center
+}
 /* Navbar item styles */
 .navbar-nav .nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display:flex; /* Use flex display for navbar items */
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center-align items */
 }
 
-.navbar-nav .bi-bag-plus {
-    font-size: 2rem; 
+/* Styles for the person icon and bag icon in the navbar */
+.bi{
+    font-size: 3rem; /* Set the font size of the bag icon and person icon to 2rem(32px) */ 
 }
 
-.navbar-nav .bi-person {
-    font-size: 2rem; 
-}
+
+/* Styles for the overall navbar */
 .navbar {
-    background-color: red;
-}
-.custom-navbar-collapse {
-    background-color: green;
+    background-color: lightgreen; /* Set the background color of the navbar to lightgreen */
 }
 
+/* Styles for the custom navbar collapse */
+.custom-navbar-collapse {
+    background-color: lightgreen; /* Set the background color of the custom navbar collapse to lightgreen */
+}
+
+/* Media query for screens with a minimum width of 1000px */
 @media (min-width:1000px) {
     .navbar-toggler {
-        display: none;
+        display: none; /* Hide the navbar toggler on screens with a width of 1000px or more */
     }
 
     .collapse {
-        /* Styles applied when the viewport width is 641 pixels or more */
+        /* Styles applied when the viewport width is 1000 pixels or more */
     }
 }
+
+.searchbar{
+    width:450px;
+    height:50px;
+}
+

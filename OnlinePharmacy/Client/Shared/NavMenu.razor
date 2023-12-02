@@ -28,32 +28,49 @@
     </nav>
 </div>
 -->
-<nav class="navbar navbar-expand-lg fixed-top">
+<!--Navigation Bar class using Boot Strap-->
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <!-- Logo and Pharmacy Name -->
-        <a class="navbar-brand" href="/1.jpg">Farmacy</a>
+        <a class="navbar-brand ms-5 align-content-center" href="#">Farmacy</a>
 
         <!-- Navbar Toggle Button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" @onclick="ToggleNavMenu">
-            <i class="bi bi-list"></i>
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-
+        
         <!-- Navigation Links -->
-        <div class="collapse navbar-collapse @NavMenuCssClass pd-2 t" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+        <div class="collapse navbar-collapse @NavMenuCssClass " id="navbarNav">
+            <form class="d-flex mx-auto searchbar" role="search">
+                <div class="input-group">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-success" id="button-addon2" type="submit">Search</button>
+                </div>
+            </form>
+
+            <ul class="navbar-nav mx-5">            
+                <li class="nav-item dropdown">
+                    <i class="bi bi-person"></i>
+                    <a class="nav-link dropdown-toggle pt-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        My Account
+                    </a>                        
+                  
+                    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <LoginDisplay />
+                    </ul>
+                </li>
                 <li class="nav-item">
                     <i class="bi bi-bag-plus"></i>
                     <a class="nav-link pt-0" href="#">Your Cart</a>
-                </li>
-                <li class="nav-item">
-                    <i class="bi bi-person"></i>
-                    <a class="nav-link pt-0" href="#">My Account</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
 
 @code {
     private bool collapseNavMenu = true;
@@ -66,5 +83,6 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
+
 }
 
