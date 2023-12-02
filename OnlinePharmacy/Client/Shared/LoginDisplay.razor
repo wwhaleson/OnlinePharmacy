@@ -3,13 +3,20 @@
 @inject NavigationManager Navigation
 
 <AuthorizeView>
+    <!-- User Logged in and able to see the different dropdown items under My account that are only accessible after logging in-->
     <Authorized>
-        <li><a class="dropdown-item" href="#">Welcome,@context.User.Identity?.Name! </a></li>
+        <!-- Have a Welcome greeting for the User when logged in-->
+        <li><a class="dropdown-item disabled">Welcome,@context.User.Identity?.Name! </a></li>
+        <!-- User able to view/select their profile details like Phone Number,Email,Password,Deleting of personal data and 2 factor-->
         <li><a class="dropdown-item" href="authentication/profile">Profile</a></li>
+        <!-- User able to select to log out of the account-->
         <li><a class="dropdown-item" href="#" @onclick="BeginLogOut">Log Out</a></li>
     </Authorized>
+    <!--User not logged in and able to see the different dropdown item for under My account-->
     <NotAuthorized>
+        <!--User able to select the register option and register for a new account-->
         <li><a class="dropdown-item" href="authentication/register">Register</a></li>
+        <!--User able to select the login option to login to their account-->
         <li><a class="dropdown-item" href="authentication/login">Log In</a></li>
     </NotAuthorized>
 </AuthorizeView>

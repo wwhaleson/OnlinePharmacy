@@ -1,69 +1,75 @@
-﻿@inject NavigationManager Navigation
-<!--
-<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">OnlinePharmacy</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
-
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </div>
-    </nav>
-</div>
--->
-
-<!--Navigation Bar class using Boot Strap-->
+﻿<!--Navigation Bar class using Boot Strap-->
+<!--Navigation Bar collapse at large breakpoint-->
 <nav class="navbar navbar-expand-lg">
+    <!--Using container fluid to hold the different objects,full width container, spanning the entire width of the viewport-->
     <div class="container-fluid">
-        <!-- Logo and Pharmacy Name -->
+        <!-- Logo and Pharmacy Name,Having the marign from start(left) move 5 and the Brand word align center -->
         <a class="navbar-brand ms-5 align-content-center" href="#">Farmacy</a>
 
-        <!-- Navbar Toggle Button -->
+        <!-- Navbar Toggle Button:
+        - Type declared as a button, indicating it's a clickable element
+        - Data attributes for Bootstrap, defining behavior when clicked:
+            - data-bs-toggle: Specifies the type of Bootstrap component to toggle
+            - data-bs-target: Identifies the target element to toggle
+            - aria-controls: indicating the controlled elements
+            - aria-expanded: indicating the expanded/collapsed state
+            - aria-label: providing an accessible description of the button
+        - When clicked, it toggles the visibility of the content specified by data-bs-target
+        - In this case, it hides/shows the content of the search bar, dropdown items, and list -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <!--Icons of the toggler button is a hamburger(3-Bar)-->
             <span class="navbar-toggler-icon"></span>
         </button>
-        
-        <!-- Navigation Links -->
+
+        <!-- Navigation Bar collapse where searchbar, dropdown items, list are at, having a unique id to route to the nav-bar toggler to know what are the content
+            Route to a code to have a responsive action of collapsing and not collpasing of item.
+        -->
         <div class="collapse navbar-collapse @NavMenuCssClass " id="navbarNav">
+            <!--Use Flex container which can be modified using other properties,giving a unique class name searchbar to allow css on this class, and assign the role
+                of this class as search
+            -->
             <form class="d-flex mx-auto searchbar" role="search">
+                <!--Input group which accept input-->
                 <div class="input-group">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+                    <!--Input field,form-control for styling,move the class marign to the right,type is search,placeholder to prompt user about expected input, 
+                    aria-describedby: References an element providing additional information, in this case is the search button-->
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-describedby="button-addon2">
+                    <!--Button has a css of outline sucess,with a unique id which is being refernce on top,the type is a submit button with the word Search inside button-->
                     <button class="btn btn-outline-success" id="button-addon2" type="submit">Search</button>
                 </div>
             </form>
 
-            <ul class="navbar-nav mx-5">            
+            <!-- For a full-height and lightweight navigation including support for dropdowns-->
+            <ul class="navbar-nav mx-5">
+                <!--Have a dropdown for item-->
                 <li class="nav-item dropdown">
+                    <!--Icon is a profile-->
                     <i class="bi bi-person"></i>
+                    <!--A navigation link styled as a dropdown toggle
+                    - 'nav-link' class applies styling for navigation links
+                    - 'dropdown-toggle' class indicates it will trigger a dropdown menu when pressed (dropdown)
+                    - 'pt-0' class removes top padding for a visually aligned look to minmise the gaps
+                    - 'href=" " provides a placeholder link to make it clickable
+                    - 'id="navbarDropdown"' unique identifier for dropdown functionality 
+                    - 'role="button"' a button-like behaviour
+                    - 'data-bs-toggle="dropdown"' activates the dropdown when interacted when clicked
+                    - 'aria-haspopup="true"' the presence of a dropdown menu
+                    - 'aria-expanded="false"'initial state of the dropdown is closed -->
                     <a class="nav-link dropdown-toggle pt-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         My Account
-                    </a>                        
-                  
+                    </a>
+                    <!--Drop down menu,refernce to the above class for the My account dropdown items-->
                     <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                        <!--Authorized/Not Authorized drop down items-->
                         <LoginDisplay />
                     </ul>
                 </li>
+                <!-- Navigation Bar item-->
                 <li class="nav-item ">
+                    <!--Icon for cart(Shopping bag)-->
                     <i class="bi bi-bag-plus"></i>
+                    <!-- Navigation link,removes top padding for a visually aligned look,Your Cart is the text(Link)-->
                     <a class="nav-link pt-0" href="#">Your Cart</a>
                 </li>
             </ul>
@@ -73,6 +79,7 @@
 
 
 @code {
+    //Navigation menu is collapse
     private bool collapseNavMenu = true;
 
     // Calculate the CSS class based on the collapseNavMenu state
@@ -83,10 +90,5 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
-    private void BeginLogOut()
-    {
-        Navigation.NavigateToLogout("authentication/logout");
-    }
 
 }
-
