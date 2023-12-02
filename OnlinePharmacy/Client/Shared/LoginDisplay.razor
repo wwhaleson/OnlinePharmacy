@@ -4,7 +4,8 @@
 
 <AuthorizeView>
     <Authorized>
-        <li><a class="dropdown-item" href="authentication/profile">Hello</a>@context.User.Identity?.Name!</li>
+        <li><a class="dropdown-item" href="#">Welcome,@context.User.Identity?.Name! </a></li>
+        <li><a class="dropdown-item" href="authentication/profile">Profile</a></li>
         <li><a class="dropdown-item" href="#" @onclick="BeginLogOut">Log Out</a></li>
     </Authorized>
     <NotAuthorized>

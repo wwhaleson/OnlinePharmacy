@@ -1,4 +1,5 @@
-﻿<!--
+﻿@inject NavigationManager Navigation
+<!--
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">OnlinePharmacy</a>
@@ -28,6 +29,7 @@
     </nav>
 </div>
 -->
+
 <!--Navigation Bar class using Boot Strap-->
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
@@ -57,12 +59,10 @@
                     </a>                        
                   
                     <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
                         <LoginDisplay />
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item ">
                     <i class="bi bi-bag-plus"></i>
                     <a class="nav-link pt-0" href="#">Your Cart</a>
                 </li>
@@ -82,6 +82,10 @@
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+    private void BeginLogOut()
+    {
+        Navigation.NavigateToLogout("authentication/logout");
     }
 
 }

@@ -1,112 +1,47 @@
-/*
-.navbar-toggler {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.top-row {
-    height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.navbar-brand {
-    font-size: 1.1rem;
-}
-
-.oi {
-    width: 2rem;
-    font-size: 1.1rem;
-    vertical-align: text-top;
-    top: -2px;
-}
-
-.nav-item {
-    font-size: 0.9rem;
-    padding-bottom: 0.5rem;
-}
-
-    .nav-item:first-of-type {
-        padding-top: 1rem;
-    }
-
-    .nav-item:last-of-type {
-        padding-bottom: 1rem;
-    }
-
-    .nav-item ::deep a {
-        color: #d7d7d7;
-        border-radius: 4px;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        line-height: 3rem;
-    }
-
-.nav-item ::deep a.active {
-    background-color: rgba(255,255,255,0.25);
-    color: white;
-}
-
-.nav-item ::deep a:hover {
-    background-color: rgba(255,255,255,0.1);
-    color: white;
-}
-*/
-
-/* Styles for the brand/logo in the navbar */
-.navbar-brand {
-    color:#FFF !important; /* Set the color of the brand/logo text to black */
-    font-weight:900;
-    font-size:40px;
-}
-
-/* Styles for the navigation links in the navbar */
-.navbar-nav .nav-link {
-    color: #000 !important; /* Set the color of the navigation links to black */
-}
-
-/* Styles for the navbar item on hover */
-.navbar-nav .navbar-item:hover {
-    color: lightskyblue !important; /* Set the color of the navbar item on hover to lightskyblue */
-}
-.navbar-nav{
-    position:center
-}
-/* Navbar item styles */
-.navbar-nav .nav-item {
-    display:flex; /* Use flex display for navbar items */
-    flex-direction: column; /* Arrange items in a column */
-    align-items: center; /* Center-align items */
-}
-
-/* Styles for the person icon and bag icon in the navbar */
-.bi{
-    font-size: 3rem; /* Set the font size of the bag icon and person icon to 2rem(32px) */ 
-}
-
-
-/* Styles for the overall navbar */
+/*Overall Navbar style*/
 .navbar {
     background-color: lightgreen; /* Set the background color of the navbar to lightgreen */
 }
+/*Brand name in the navbar */
+.navbar-brand {
+    color:#FFF !important; /* Set the color of the brand name to white */
+    font-weight:900; /* Set the font weight (Boldness) of the brand name */
+    font-size:40px; /* Set the font size of the brand name text to 40 pixels */
+}
 
-/* Styles for the custom navbar collapse */
+/*Navigation links in the navbar */
+.navbar-nav .nav-link {
+    color: #000; /* Set the color of the navigation links to black */
+}
+
+/* Navbar item styles */
+.navbar-nav .nav-item {
+    display:flex; /* Use flex display for navbar items (Flex box allow for for quick management of layout alignment etc */
+    flex-direction: column; /* Arrange items in a column (Effectively helps to ensure when the hamburger appears item are in a single column*/
+    align-items: center; /* Center-align items, icons and the text are just below each other and are centered */
+}
+
+/*Profile icon and Bag icon in the navbar styles */
+.bi{
+    font-size: 3rem; /* Set the font size of the bag icon and person icon to 3rem (48 pixels) */ 
+}
+
+/*Custom navbar collapse style*/
 .custom-navbar-collapse {
     background-color: lightgreen; /* Set the background color of the custom navbar collapse to lightgreen */
 }
 
-/* Media query for screens with a minimum width of 1000px */
+/*Media query for screens with a minimum width of 1000px */
 @media (min-width:1000px) {
     .navbar-toggler {
         display: none; /* Hide the navbar toggler on screens with a width of 1000px or more */
     }
 
     .collapse {
-        /* Styles applied when the viewport width is 1000 pixels or more */
     }
 }
-
-.searchbar{
-    width:450px;
-    height:50px;
+/*Custom searchbar style*/
+.searchbar {
+    width: 450px; /* Set the width of the search bar to 450 pixels */
+    height: 50px; /* Set the height of the search bar to 50 pixels */
 }
-
