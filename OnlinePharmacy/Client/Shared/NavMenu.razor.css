@@ -1,12 +1,42 @@
-/*Overall Navbar style*/
-.navbar {
-    background-color: lightgreen; /* Set the background color of the navbar to lightgreen */
+/*Overall Navbar style for the first Navr Bar*/
+#navbar1 {
+    background-color: #A8DF8E; /* Set the background color of the navbar*/
+}
+/*Overall Navbar style for the second Navr Bar*/
+#navbar2 {
+    background-color:#F3FDE8 /* Set the background color of the navbar*/
 }
 /*Brand name in the navbar */
-.navbar-brand {
-    color:#FFF !important; /* Set the color of the brand name to white */
-    font-weight:900; /* Set the font weight (Boldness) of the brand name */
-    font-size:40px; /* Set the font size of the brand name text to 40 pixels */
+#navigationbarlogo{
+    color: #FFF !important; /* Set the color of the brand name to white */
+    font-weight: 900; /* Set the font weight (Boldness) of the brand name */
+    font-size: 40px; /* Set the font size of the brand name text to 40 pixels */
+}
+
+/*Custom searchbutton style*/
+#searchbutton {
+    background-color: white; /*Set the background color of the button to be white*/
+    color: black; /*Set the font color of the word "Search" in button to be black */
+}
+
+/*Custom searchbar style*/
+.searchbar {
+    width: 450px; /* Set the width of the search bar to 450 pixels */
+    height: 50px; /* Set the height of the search bar to 50 pixels */
+}
+
+/*Profile icon and Bag icon in the navbar styles */
+.bi {
+    font-size: 3rem; /* Set the font size of the bag icon and person icon to 3rem (48 pixels) */
+}
+
+/*Custom style for badge for the cart*/
+.badge {
+    color: black;
+    background-color: white;
+    position: relative;
+    top: -25px;
+    right: 20px;
 }
 
 /*Navigation links in the navbar */
@@ -21,16 +51,6 @@
     align-items: center; /* Center-align items, icons and the text are just below each other and are centered */
 }
 
-/*Profile icon and Bag icon in the navbar styles */
-.bi{
-    font-size: 3rem; /* Set the font size of the bag icon and person icon to 3rem (48 pixels) */ 
-}
-
-/*Custom navbar collapse style*/
-.custom-navbar-collapse {
-    background-color: lightgreen; /* Set the background color of the custom navbar collapse to lightgreen */
-}
-
 /*Media query for screens with a minimum width of 1000px */
 @media (min-width:1000px) {
     .navbar-toggler {
@@ -39,9 +59,4 @@
 
     .collapse {
     }
-}
-/*Custom searchbar style*/
-.searchbar {
-    width: 450px; /* Set the width of the search bar to 450 pixels */
-    height: 50px; /* Set the height of the search bar to 50 pixels */
 }

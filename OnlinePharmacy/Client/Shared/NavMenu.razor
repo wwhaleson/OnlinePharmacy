@@ -1,10 +1,10 @@
 ﻿<!--Navigation Bar class using Boot Strap-->
 <!--Navigation Bar collapse at large breakpoint-->
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg" id="navbar1">
     <!--Using container fluid to hold the different objects,full width container, spanning the entire width of the viewport-->
     <div class="container-fluid">
         <!-- Logo and Pharmacy Name,Having the marign from start(left) move 5 and the Brand word align center -->
-        <a class="navbar-brand ms-5 align-content-center" href="#">Farmacy</a>
+        <a class="navbar-brand ms-5 align-content-center" href="#" id="navigationbarlogo">Farmacy</a>
 
         <!-- Navbar Toggle Button:
         - Type declared as a button, indicating it's a clickable element
@@ -36,28 +36,26 @@
                     aria-describedby: References an element providing additional information, in this case is the search button-->
                     <input class="form-control me-2" type="search" placeholder="Search" aria-describedby="button-addon2">
                     <!--Button has a css of outline sucess,with a unique id which is being refernce on top,the type is a submit button with the word Search inside button-->
-                    <button class="btn btn-outline-success" id="button-addon2" type="submit">Search</button>
+                    <button class="btn btn-outline-dark" id="searchbutton" type="submit">Search</button>
                 </div>
             </form>
 
             <!-- For a full-height and lightweight navigation including support for dropdowns-->
             <ul class="navbar-nav mx-5">
                 <!--Have a dropdown for item-->
-                <li class="nav-item dropdown">
-                    <!--Icon is a profile-->
-                    <i class="bi bi-person"></i>
+                <li class="nav-item dropdown">   
                     <!--A navigation link styled as a dropdown toggle
-                    - 'nav-link' class applies styling for navigation links
+                    - 'nav-link' class applies styling for navigation links with the icon
                     - 'dropdown-toggle' class indicates it will trigger a dropdown menu when pressed (dropdown)
-                    - 'pt-0' class removes top padding for a visually aligned look to minmise the gaps
                     - 'href=" " provides a placeholder link to make it clickable
                     - 'id="navbarDropdown"' unique identifier for dropdown functionality 
                     - 'role="button"' a button-like behaviour
                     - 'data-bs-toggle="dropdown"' activates the dropdown when interacted when clicked
                     - 'aria-haspopup="true"' the presence of a dropdown menu
                     - 'aria-expanded="false"'initial state of the dropdown is closed -->
-                    <a class="nav-link dropdown-toggle pt-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        My Account
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <!--Icon is a profile-->
+                        <i class="bi bi-person"></i>My Account
                     </a>
                     <!--Drop down menu,refernce to the above class for the My account dropdown items-->
                     <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
@@ -67,16 +65,31 @@
                 </li>
                 <!-- Navigation Bar item-->
                 <li class="nav-item ">
-                    <!--Icon for cart(Shopping bag)-->
-                    <i class="bi bi-bag-plus"></i>
-                    <!-- Navigation link,removes top padding for a visually aligned look,Your Cart is the text(Link)-->
-                    <a class="nav-link pt-0" href="#">Your Cart</a>
+                    <!-- Navigation link,Your Cart and its icon is the text(Link)-->   
+                    <a class="nav-link" href="/Cart">
+                        <!--Icon for cart(Shopping bag)-->
+                        <i class="bi bi-bag-plus"></i>
+                        <!--Badge for the number of items in cart-->
+                        <span class="badge">0</span>                       
+                    </a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
+<nav class="navbar navbar-expand-lg" id="navbar2">
+   <div class="container-fluid">
+        <a href="">Prescription Medicine</a>
+        <a href="">Over-the-Counter Medicines</a>
+        <a href="">Vitamins</a>
+        <a href="">Home Care and Recovery Aids</a>
+
+
+
+
+   </div>
+</nav>
 
 @code {
     //Navigation menu is collapse
