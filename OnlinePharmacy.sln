@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlinePharmacy.Server", "OnlinePharmacy\Server\OnlinePharmacy.Server.csproj", "{7B6BA300-ED70-4371-BF52-30659C66B3FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlinePharmacy.Server", "OnlinePharmacy\Server\OnlinePharmacy.Server.csproj", "{7B6BA300-ED70-4371-BF52-30659C66B3FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlinePharmacy.Client", "OnlinePharmacy\Client\OnlinePharmacy.Client.csproj", "{0CC04983-FE0F-4690-BC33-0AE1C6E9C262}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlinePharmacy.Client", "OnlinePharmacy\Client\OnlinePharmacy.Client.csproj", "{0CC04983-FE0F-4690-BC33-0AE1C6E9C262}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlinePharmacy.Shared", "OnlinePharmacy\Shared\OnlinePharmacy.Shared.csproj", "{903DE474-09C4-4B25-BAE5-5B04BBF48125}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlinePharmacy.Shared", "OnlinePharmacy\Shared\OnlinePharmacy.Shared.csproj", "{903DE474-09C4-4B25-BAE5-5B04BBF48125}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
