@@ -84,3 +84,12 @@ main {
 .header{
     position:fixed;
 }
+.footer{
+    position:fixed;
+}
+.container-fluid {
+    background-color: #A8DF8E; /* Set the background color of the navbar*/
+}
+#itemonfooter{
+    vertical-align:central;
+}

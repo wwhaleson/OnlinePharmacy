@@ -37,6 +37,7 @@
     position: relative;
     top: -25px;
     right: 20px;
+
 }
 
 /*Navigation links in the navbar */
@@ -48,7 +49,7 @@
 .navbar-nav .nav-item {
     display:flex; /* Use flex display for navbar items (Flex box allow for for quick management of layout alignment etc */
     flex-direction: column; /* Arrange items in a column (Effectively helps to ensure when the hamburger appears item are in a single column*/
-    align-items: center; /* Center-align items, icons and the text are just below each other and are centered */
+    align-items: flex-start; /* Center-align items, icons and the text are just below each other and are centered */
 }
 
 /*Media query for screens with a minimum width of 1000px */
