@@ -1,0 +1,25 @@
+﻿
+.sub-menu-link {
+    display: flex;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+    align-self: center;
+}
+
+.sub-menu-link p {
+    width: 100%;
+    text-align: center;
+}
+
+.sub-menu-link span {
+    font-size: 22px;
+}
+
+.sub-menu-link:hover span {
+    transform: translateX(5px);
+}
+
+.sub-menu-link:hover p {
+    font-weight: 600;
+}

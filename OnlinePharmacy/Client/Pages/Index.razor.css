@@ -1,15 +1,39 @@
-﻿
-.carousel-control-next-icon{
-  background-color:black;
+﻿#featuredbrands {
+    font-weight: 600;
+    font-family: "Rubik", serif;
 }
-.carousel-control-prev-icon {
-    background-color: black;
+#featuredbrandsdescription {
+    font-weight: 400;
+    font-family: "Rubik", serif;
 }
-#img1 {
-    width: 100%;
-    height: 600px;
+
+#awards{
+font-weight: 600;
+font-family: "Rubik", serif;
 }
-#img2{
-    width: 100%;
-    height:600px;
+
+#awardsdescription {
+    font-weight: 400;
+    font-family: "Rubik", serif;
+}
+
+#containerforfeaturedbrand {
+    background-color: #ebf6f7;
+}
+
+.text-hr {
+    width: 50%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin: auto;
+}
+
+.card-title {
+    font-weight: 600;
+    font-family: "Rubik", serif;
+    text-align: center;
+}
+.card{
+    height:100%;
+    border:none;
 }

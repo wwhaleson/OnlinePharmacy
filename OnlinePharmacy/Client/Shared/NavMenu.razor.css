@@ -1,63 +1,131 @@
-/*Overall Navbar style for the first Navr Bar*/
-#navbar1 {
-    background-color: #A8DF8E; /* Set the background color of the navbar*/
-}
-/*Overall Navbar style for the second Navr Bar*/
-#navbar2 {
-    background-color:#F3FDE8 /* Set the background color of the navbar*/
-}
-/*Brand name in the navbar */
-#navigationbarlogo{
-    color: #FFF !important; /* Set the color of the brand name to white */
-    font-weight: 900; /* Set the font weight (Boldness) of the brand name */
-    font-size: 40px; /* Set the font size of the brand name text to 40 pixels */
+
+/* Override Bootstrap styles for offcanvas dropdown items */
+.navbar-nav .dropdown-menu {
+    border: 1px solid #ddd; /* Add your default border style here */
 }
 
-/*Custom searchbutton style*/
-#searchbutton {
-    background-color: white; /*Set the background color of the button to be white*/
-    color: black; /*Set the font color of the word "Search" in button to be black */
+/* Override styles for the dropdown menu when the viewport is less than 800pixels */
+@media (max-width: 1001px) {
+    .navbar-nav .dropdown-menu {
+        border: none; /* Remove the border in this specific case */
+    }
+}
+@media (min-width: 1000px) {
+    .offcanvas-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
 }
 
-/*Custom searchbar style*/
-.searchbar {
-    width: 450px; /* Set the width of the search bar to 450 pixels */
-    height: 50px; /* Set the height of the search bar to 50 pixels */
+.offcanvas {
+    max-width: 500px; /* Adjust the value based on your preference */
+
 }
 
-/*Profile icon and Bag icon in the navbar styles */
-.bi {
-    font-size: 3rem; /* Set the font size of the bag icon and person icon to 3rem (48 pixels) */
+#navigationbarlogo {
+    font-weight: 800;
+    font-size: 35px;
+    font-family: "Rubik", serif;
+    margin-left:20px;
 }
 
-/*Custom style for badge for the cart*/
-.badge {
-    color: black;
-    background-color: white;
+#navigaionbaritems {
+    font-family: "Rubik", serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#navigationicon {
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+#dflexcontainer {
+    justify-content: center;
+    align-items: center;
+}
+
+#Shoppingbag{
     position: relative;
-    top: -25px;
-    right: 20px;
-
+    margin-right:20px;
 }
 
-/*Navigation links in the navbar */
-.navbar-nav .nav-link {
-    color: #000; /* Set the color of the navigation links to black */
+#Searchscope {
+    margin-right: 20px;
+    height:30px;
 }
 
-/* Navbar item styles */
-.navbar-nav .nav-item {
-    display:flex; /* Use flex display for navbar items (Flex box allow for for quick management of layout alignment etc */
-    flex-direction: column; /* Arrange items in a column (Effectively helps to ensure when the hamburger appears item are in a single column*/
-    align-items: flex-start; /* Center-align items, icons and the text are just below each other and are centered */
+#Profileicon {
+    margin-right: 20px;
 }
 
-/*Media query for screens with a minimum width of 1000px */
-@media (min-width:1000px) {
-    .navbar-toggler {
-        display: none; /* Hide the navbar toggler on screens with a width of 1000px or more */
-    }
-
-    .collapse {
-    }
+#numberofproducts {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    font-size: 10px;
 }
+
+#navtoggler {
+    border: none;
+}
+
+#navtoggler:hover {
+    background-color:grey;
+}
+
+
+#aboutus:hover {
+    color: forestgreen;
+    font-weight: 600;
+}
+#services:hover {
+    color: forestgreen;
+    font-weight: 600;
+}
+
+#prescriptionmedicine:hover {
+    font-weight: 600;
+}
+
+#overthecountermedicine:hover {
+    font-weight: 600;
+}
+
+#vitamins:hover {
+    font-weight: 600;
+}
+
+#homecareandrecoveryaid:hover {
+    font-weight: 600;
+}
+#products:hover {
+    color: forestgreen;
+    font-weight: 600;
+} 
+
+
+.sub-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 0%;
+    width: 250px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    font-size: 20px;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu{
+    max-height:400px;
+}
+
+.sub-menu{
+    background-color: red;
+    padding: 20px;
+    margin: 10px
+}
+

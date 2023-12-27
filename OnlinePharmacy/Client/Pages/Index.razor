@@ -1,24 +1,106 @@
 ﻿@page "/"
 
 <PageTitle>Home Page</PageTitle>
-<!--Have the Carousel take up 100% width as Container Fluix maximise the width to 100%-->
-<div class="container-fluid" >
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" >
-        <div class="carousel-inner" id="containerbox1">
-            <div class="carousel-item active">
-                <img src="/Banner2.png" class="d-block" id="img1" alt="...">
+
+<div class="container-fluid" id="containerforfeaturedbrand"> 
+    <div class="row my-5">
+    <h2 class="text-center" id="featuredbrands">Featured Brands </h2>
+    <p class="text-center" id="featuredbrandsdescription">These featured brands represent the trusted products we carry at our pharmacy.</p>
+        <hr class="text-hr" />
+    </div>
+    <div class="row mt-1">
+        <div class="brand-carousel owl-carousel">
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/QxPJ8hXy/brand-1.png" alt="">
             </div>
-            <div class="carousel-item">
-                <img src="/20offer-banner.jpg" class="d-block " id="img2" alt="...">
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/pdMQjC5Q/brand-2.png" alt="">
+            </div>
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/B6qxYvgX/brand-3.png" alt="">
+            </div>
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/d14GzKHn/brand-4.png" alt="">
+            </div>
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/x8ZM13Sz/brand-5.png" alt="">
+            </div>
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/B6qxYvgX/brand-3.png" alt="">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon " aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
 </div>
+<div class="container-fluid">
+    <div class="row my-5">
+        <h2 class="text-center" id="awards">Awards</h2>
+        <p class="text-center" id="awardsdescription">Awards that earn your trust. </p>
+        <hr class="text-hr" />
+    </div>
+
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3">
+            <div class="col">
+                <div class="card">
+                    <img src="https://png.pngtree.com/png-vector/20230225/ourmid/pngtree-best-award-medal-with-rice-or-paddy-symbol-in-gold-and-png-image_6587285.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Best Online Pharmacy Award 2023</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="https://png.pngtree.com/png-clipart/20230512/original/pngtree-premium-quality-product-gold-label-emblem-png-image_9159342.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Best Quality Award 2023</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="https://static.wixstatic.com/media/8e67f1_4be463d3ce894d06bfd83795732a72d4~mv2_d_1500_1500_s_2.jpg/v1/fill/w_2500,h_2500,al_c/8e67f1_4be463d3ce894d06bfd83795732a72d4~mv2_d_1500_1500_s_2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Customer Choice Award 2023</h5>                  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    $('.brand-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 5
+            }
+        }
+    })
+
+</script>

@@ -6,18 +6,36 @@
     <!-- User Logged in and able to see the different dropdown items under My account that are only accessible after logging in-->
     <Authorized>
         <!-- Have a Welcome greeting for the User when logged in-->
-        <li><a class="dropdown-item disabled">Welcome,@context.User.Identity?.Name! </a></li>
+        <!--<li><a class="dropdown-item disabled">Welcome,@context.User.Identity?.Name! </a></li>-->
+
         <!-- User able to view/select their profile details like Phone Number,Email,Password,Deleting of personal data and 2 factor-->
-        <li><a class="dropdown-item" href="authentication/profile">Profile</a></li>
+        <a href="authentication/profile" class="sub-menu-link">
+            <i class="bi bi-person"></i>
+            <p>Edit Profile </p>
+            <span>></span>
+        </a>
         <!-- User able to select to log out of the account-->
-        <li><a class="dropdown-item" href="#" @onclick="BeginLogOut">Log Out</a></li>
+        <a href="#" @onclick="BeginLogOut" class="sub-menu-link">
+            <i class="bi bi-box-arrow-right"></i>
+            <p>Log Out</p>
+            <span>></span>
+        </a>
+
     </Authorized>
     <!--User not logged in and able to see the different dropdown item for under My account-->
     <NotAuthorized>
         <!--User able to select the register option and register for a new account-->
-        <li><a class="dropdown-item" href="authentication/register">Register</a></li>
+        <a href="authentication/register" class="sub-menu-link">
+            <i class="bi bi-r-circle"></i>
+            <p>Register</p>
+            <span>></span>
+        </a>
         <!--User able to select the login option to login to their account-->
-        <li><a class="dropdown-item" href="authentication/login">Log In</a></li>
+        <a href="authentication/login" class="sub-menu-link">
+            <i class="bi bi-box-arrow-in-left"></i>
+            <p>Log In</p>
+            <span>></span>
+        </a>
     </NotAuthorized>
 </AuthorizeView>
 
