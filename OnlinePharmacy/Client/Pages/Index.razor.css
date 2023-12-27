@@ -33,7 +33,22 @@ font-family: "Rubik", serif;
     font-family: "Rubik", serif;
     text-align: center;
 }
-.card{
-    height:100%;
-    border:none;
+.card-text {
+    font-weight: 400;
+    font-family: "Rubik", serif;
+    text-align: center;
+}
+#award1card, #award2card, #award3card {
+    height: 100%;
+    border: none;
+}
+
+.btn {
+    font-weight: 400;
+    font-family: "Rubik", serif;
+    text-align: center;
+}
+#articleimage1, #articleimage2, #articleimage3 {
+    height: 180px; /* Set your desired height */
+    object-fit: cover; /* This ensures the image covers the entire container */
 }

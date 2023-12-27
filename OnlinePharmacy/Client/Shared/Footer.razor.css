@@ -3,3 +3,9 @@
     font-family: "Rubik", serif;
     color: black;   
 }
+.text-hr {
+    width: 50%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin: auto;
+}
