@@ -42,10 +42,6 @@
     margin-right: 20px;
 }
 
-#dflexcontainer {
-    justify-content: center;
-    align-items: center;
-}
 
 #Shoppingbag{
     position: relative;
@@ -77,14 +73,6 @@
 }
 
 
-#aboutus:hover {
-    color: forestgreen;
-    font-weight: 600;
-}
-#services:hover {
-    color: forestgreen;
-    font-weight: 600;
-}
 
 #prescriptionmedicine:hover {
     font-weight: 600;
@@ -104,7 +92,7 @@
 #products:hover {
     color: forestgreen;
     font-weight: 600;
-} 
+}
 
 
 .sub-menu-wrap {
@@ -114,18 +102,21 @@
     width: 250px;
     max-height: 0px;
     overflow: hidden;
-    transition: max-height 0.5s;
+    transition: max-height 0.3s;
     font-size: 20px;
-    transition: max-height 0.5s;
+    z-index: 1
 }
 
 .sub-menu-wrap.open-menu{
     max-height:400px;
+    z-index:1
 }
 
-.sub-menu{
-    background-color: red;
+.sub-menu {
+    background-color: whitesmoke;
     padding: 20px;
-    margin: 10px
+    margin: 10px;
+    border: thick;
+    z-index: 1
 }
 

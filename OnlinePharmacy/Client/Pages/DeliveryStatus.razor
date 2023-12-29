@@ -1,0 +1,55 @@
+﻿@page "/DeliveryStatus"
+<PageTitle>Delivery Status</PageTitle>
+<div class="container">
+    <div class="d-flex flex-column" id="dflexdeliver">
+        <h1 class="mt-5" id="deliverstatusheader">Delivery Status</h1>
+    </div>
+
+    <hr class="text-hr" />
+    <div class="table-responsive mt-5">
+        <table class="table ">
+            <thead class="table-light">
+                <tr id="delivertablecolumnname">
+                    <th scope="col" class="dcol">#Order ID</th>
+                    <th scope="col" class="dcol">#Deliver ID</th>
+                    <th scope="col" class="dcol">Est Delivery Date</th>
+                    <th scope="col" class="dcol">Est Delivery Time</th>
+                    <th scope="col" class="dcol">Delivery method</th>
+                    <th scope="col" class="dcol">Status</th>
+                </tr>
+            </thead>
+            <tbody id="specificdeliverrow">
+                <tr>
+                    <td id="orderid" class="dr">123</td>
+                    <td id="deliverid" class="dr">123</td>
+                    <td id="estdeliverydate" class="dr">123</td>
+                    <td id="estdeliverytime" class="dr">123</td>
+                    <td id="deliverymethod" class="dr">123</td>
+                    <td id="orderstatus" class="dr">
+                        <select class="form-select " aria-label="Default select example">
+                            <option value="1">Packing</option>
+                            <option value="2">Delivering</option>
+                            <option value="3">Delivered</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+@code {
+
+}

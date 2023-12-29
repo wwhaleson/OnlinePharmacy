@@ -1,0 +1,30 @@
+﻿.breadcrumb-item {
+    font-weight: 300;
+    font-family: "Rubik", serif;
+    font-size: 20px;
+}
+
+.navbar {
+    z-index: 0;
+}
+
+#dflexconfirmation {
+    justify-content: center;
+    margin-bottom:5px;
+
+}
+#thankyouheader{
+    font-weight: 900;
+    font-family: "Rubik", serif;
+    font-size: 100px;
+    text-align:center;
+}
+#successfulpurchaseheader {
+    font-weight: 500;
+    font-family: "Rubik", serif;
+    font-size: 20px;
+    text-align: center;
+}
+#dflexbacktostore {
+    justify-content: center;
+}

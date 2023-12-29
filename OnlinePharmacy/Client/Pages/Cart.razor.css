@@ -1,0 +1,64 @@
+﻿
+.breadcrumb-item {
+    font-weight: 300;
+    font-family: "Rubik", serif;
+    font-size: 20px;
+}
+
+#yourcartheader {
+    text-align: center;
+    font-weight: 800;
+    font-size: 35px;
+    font-family: "Rubik", serif;
+}
+
+#cartcolumnname{
+    text-align:center;
+}
+.navbar {
+    z-index: 0;
+}
+#productsincart {
+    text-align: center;
+}
+.removebutton {
+    background-color: none;
+}
+.col {
+    font-weight: 300;
+    font-family: "Rubik", serif;
+    font-size: 20px;
+    text-align:center;
+}
+
+
+#totalamountcol1 {
+    font-weight: 800;
+    font-size: 30px;
+    text-align: center;
+    
+}
+#totalamountcol2 {
+    font-weight: 800;
+    font-size: 30px;
+}
+
+#Checkoutbutton {
+    margin: 10px;
+    padding: 10px;
+
+}
+
+.productimage {
+    height: 75px;
+    width: 75px;
+}
+
+#containercontaintable{
+    justify-content:center;
+
+}
+
+#totalpricecheckoutcontainer1{
+    margin-top:10px;
+}

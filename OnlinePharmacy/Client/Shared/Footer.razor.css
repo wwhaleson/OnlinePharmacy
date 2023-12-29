@@ -1,11 +1,43 @@
 ﻿#footercontainer {
     background-color: #ebf6f7;
     font-family: "Rubik", serif;
-    color: black;   
 }
 .text-hr {
     width: 50%;
+    margin:auto;
+
+}
+
+#aboutus {
+    text-align: end;
     margin-top: 5px;
     margin-bottom: 5px;
-    margin: auto;
 }
+
+#services {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#home {
+    text-align: start;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#home:hover {
+        color: forestgreen;
+        font-weight: 600;
+}
+
+#aboutus:hover {
+    color: forestgreen;
+    font-weight: 600;
+}
+
+#services:hover {
+    color: forestgreen;
+    font-weight: 600;
+}
+

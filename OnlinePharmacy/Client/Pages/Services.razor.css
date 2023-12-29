@@ -1,0 +1,45 @@
+﻿#alltext {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#sheader1 {
+    font-weight: 800;
+    font-family: "Rubik", serif;
+    font-size: 50px;
+}
+
+#service1card, #service2card, #service3card {
+    height: 100%;
+    border: none;
+}
+
+#services {
+    font-weight: 800;
+    font-family: "Rubik", serif;
+    font-size: 50px;
+}
+
+#servicesdescription {
+    font-weight: 600;
+    font-family: "Rubik", serif;
+    font-size: 20px;
+}
+
+
+.card-title {
+    font-weight: 600;
+    font-family: "Rubik", serif;
+    text-align: center;
+}
+
+.card-text {
+    font-weight: 400;
+    font-family: "Rubik", serif;
+
+}
+.text-hr {
+    width: 50%;
+    margin: auto;
+}

@@ -17,14 +17,17 @@ font-family: "Rubik", serif;
     font-family: "Rubik", serif;
 }
 
-#containerforfeaturedbrand {
-    background-color: #ebf6f7;
+.owimage {
+    justify-content: center;
+}
+
+#brandpicture1, #brandpicture2, #brandpicture3, #brandpicture4, #brandpicture5, #brandpicture6 {
+    width: 215.51px;
+    height: 107.75px;
 }
 
 .text-hr {
     width: 50%;
-    margin-top: 5px;
-    margin-bottom: 5px;
     margin: auto;
 }
 
@@ -51,4 +54,29 @@ font-family: "Rubik", serif;
 #articleimage1, #articleimage2, #articleimage3 {
     height: 180px; /* Set your desired height */
     object-fit: cover; /* This ensures the image covers the entire container */
+}
+
+#alltext {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#headerdescription{
+    font-weight: 600;
+    font-family: "Rubik", serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+#header1 {
+    font-weight: 900;
+    font-family: "Rubik", serif;
+    font-size: 50px;
+    text-align: center;
+}
+
+#header-container {
+    background: url('https://cdn.vectorstock.com/i/preview-1x/49/77/pills-background-medical-pharmacy-banner-vector-40044977.jpg') center/cover no-repeat; /* Replace 'your-image-url.jpg' with the URL of your image */
 }
