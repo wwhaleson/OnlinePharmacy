@@ -1,2 +1,28 @@
-﻿body {
+﻿#dflexonlineappointment {
+    justify-content: center;
 }
+
+#onlineappointmentstatusheader {
+    text-align: center;
+    font-weight: 800;
+    font-size: 35px;
+    font-family: "Rubik", serif;
+}
+
+#delivertablecolumnname {
+    border: 2px solid;
+}
+
+.text-hr {
+    width: 50%;
+    margin: auto;
+}
+
+.dcol {
+    text-align: center;
+}
+
+.dr {
+    text-align: center;
+}
+
