@@ -3,7 +3,7 @@
 @inject NavigationManager Navigation
 
 <nav class="navbar navbar-expand-lg bg-white  ">
-    <div class="container" aria-label="breadcrumb" id="breadcrumbcontainer">
+    <div class="container" aria-label="breadcrumb" id="breadcrumbcheckoutcontainer">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Cart</li>
@@ -22,6 +22,7 @@
             <div>
               <h6 class="my-0">Product name</h6>
               <small class="text-muted">Brief description</small>
+
             </div>
             <span class="text-muted">$12</span>
           </li>
@@ -142,16 +143,16 @@
             </div>
 
             <div class="col-md-6">
-              <label for="cc-number" class="form-label">Credit card number</label>
+              <label for="cc-number" class="form-label">Card number</label>
               <input type="text" class="form-control" id="cc-number" placeholder="" required>
               <div class="invalid-feedback">
-                Credit card number is required
+                Card number is required
               </div>
             </div>
 
             <div class="col-md-3">
               <label for="expiration" class="form-label">Expiration</label>
-              <input type="text" class="form-control" id="expiration" placeholder="" required>
+              <input type="text" class="form-control" id="expiration" placeholder="MM/YY" required>
               <div class="invalid-feedback">
                 Expiration date required
               </div>
@@ -169,7 +170,7 @@
           <hr class="my-4">
 
           <div class = "d-flex" id="dflexbutton">
-                    <buttona class="btn btn-outline-primary btn-lg" type="submit" align="center" @onclick="successfulpage">CHECKOUT</buttona>
+                    <button class="btn btn-outline-primary btn-lg" id="submitbutton" type="submit" align="center" onclick="handlecheckout()">CHECKOUT</button>
           </div>
 
         </form>
@@ -187,7 +188,3 @@
         Navigation.NavigateTo("/SuccessfulPurchase");
     }
 }
-
-<script>
-
-</script>

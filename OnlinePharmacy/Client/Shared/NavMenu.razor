@@ -24,6 +24,7 @@
                                     <li><a href="#" class="dropdown-item">Vomiting</a></li>
                                 </ul>
                             </li>
+                            <!--
                             <li class="dropend">
                                 <a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" id="overthecountermedicine" href="/OverTheCounterMedicines">Over-The-Counter Medicine</a>
                                 <ul class="dropdown-menu">
@@ -33,7 +34,8 @@
                                     <li><a href="#" class="dropdown-item">Diarrhea</a></li>
                                     <li><a href="#" class="dropdown-item">Vomiting</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
+                            <li><a class="dropdown-item" href="/OverTheCounterMedicines" id="overthecountermedicine">Over-The-Counter Medicine</a></li>
                             <li><a class="dropdown-item" href="/Vitamins" id="vitamins">Vitamins </a></li>
                             <li><a class="dropdown-item" href="/HomeCareAndRecoveryAids" id="homecareandrecoveryaid">Home Care and Recovery Aid </a></li>
                         </ul>
@@ -55,19 +57,21 @@
                 <span class="bi bi-bag-plus" font-size: 5rem;></span>
                     <span class="badge bg-success" id="numberofproducts">1</span>
                 </a>
-            <a class="nav-link" id="Profileicon" onclick="toggleMenu()">
-                <span class="bi bi-person-circle" font-size: 5rem;></span>
-                </a>
+            <a class="nav-link" id="Profileicon" onclick="toggleMenu() ">
+                <span class="bi bi-person-circle"></span>
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                        <LoginDisplay />
+                    </div>
+                </div>
+            </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNav" aria-controls="offcanvasNav" id="navtoggler">
                 <span class="navbar-toggler-icon"></span>
             </button>
             </div>
 
-        <div class="sub-menu-wrap" id="subMenu">
-            <div class="sub-menu" >
-                <LoginDisplay />
-            </div>
-        </div>
+
 
 
 
@@ -75,16 +79,8 @@
 </nav>
 
 @code {
-
+    
 
 
 }
 
-<script>
-    let subMenu = document.getElementById("subMenu");
-
-    function toggleMenu() {
-        subMenu.classList.toggle("open-menu");
-    }
-
-</script>
