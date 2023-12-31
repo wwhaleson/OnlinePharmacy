@@ -3,3 +3,36 @@
     font-family: "Rubik", serif;
     font-size: 20px;
 }
+
+#overthecountermedicineheader {
+    font-weight: 800;
+    font-family: "Rubik", serif;
+    font-size: 30px;
+}
+
+.text-hr {
+    width: 50%;
+    margin: auto;
+}
+
+.catproductimage {
+    height: 200px;
+    width: 200px;
+    align-self: center;
+}
+
+.productcardbody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.productcard {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.productcard:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 1);
+}
