@@ -12,10 +12,7 @@ function handlecheckout() {
                 event.stopPropagation();
                 window.location.href = '/SuccessfulPurchase';
             }
-            else {
-                // If form is valid, change the page
-                window.location.href = '/SuccessfulPurchase';
-            }
+
 
             form.classList.add('was-validated');
         }, false);
@@ -34,5 +31,3 @@ function handlecheckout() {
     });
 }
 
-// Call the initialize function when the DOM is ready
-document.addEventListener('DOMContentLoaded', initialize);
