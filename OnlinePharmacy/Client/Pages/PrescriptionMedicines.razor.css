@@ -16,9 +16,9 @@
 }
 
 .catproductimage {
-    height: 200px;
-    width: 200px;
-    align-self:center;
+    max-width: 100%;
+    height: auto;
+    align-self: center;
 }
 
 .productcardbody {
@@ -35,4 +35,29 @@
 
 .productcard:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 1);
+}
+
+.addtocartbutton {
+    max-width: 100%;
+    height: auto;
+}
+
+.btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    background-color: transparent;
+    border: none;
+}
+
+.productname {
+    max-width: 100%;
+    height: auto;
+}
+
+.productprice {
+    max-width: 100%;
+    height: auto;
+    font-weight: 900;
 }
