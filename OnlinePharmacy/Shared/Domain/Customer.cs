@@ -23,13 +23,17 @@ namespace OnlinePharmacy.Shared.Domain
 
         public int? CustFloorNo { get; set; }
 
-        public string? CustAddress { get; set; }
+        public string? CustStreetAddress { get; set; }
 
         public int? CustPhoneNo { get; set; }
 
         public string? CustEmail { get; set; }
 
         public string? CustPass { get; set; }
+
+      
+
+
 
     }
 }
