@@ -9,7 +9,7 @@ namespace OnlinePharmacy.Shared.Domain
     public class Staff
     {
         //? Nullable
-        public int StaffID { get; set; }    
+        public int StaffID { get; set; }
 
         public string? StaffFname { get; set; }
 

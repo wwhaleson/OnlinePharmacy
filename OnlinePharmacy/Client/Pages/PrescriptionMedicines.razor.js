@@ -7,10 +7,6 @@
         // Update the badge value
         badge.innerText = ++cartItemCount;
         console.log("Added to Cart");
-    });
- 
-
-
-    
+    });  
 
 }

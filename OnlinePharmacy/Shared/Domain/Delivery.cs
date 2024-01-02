@@ -9,12 +9,9 @@ namespace OnlinePharmacy.Shared.Domain
     public class Delivery
     {
         public int DeliveryID { get; set; }
-
-        public DateOnly? DeliveryDate { get; set; }
+        public DateTime? EstimatedDeliveryDateTime { get; set; }
 
         public string? DeliveryStatus { get; set; }
-
-        public TimeOnly? EstimatedDeliveryTime { get; set; }
 
         public string? DeliveryMethod { get; set; }
 

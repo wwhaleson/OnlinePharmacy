@@ -14,6 +14,6 @@ namespace OnlinePharmacy.Shared.Domain
 
         public string? CategoryDescription { get; set; }
 
-        
+
     }
 }

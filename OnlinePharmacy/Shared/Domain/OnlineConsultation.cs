@@ -11,17 +11,21 @@ namespace OnlinePharmacy.Shared.Domain
 
         public int OnlineConsultationID { get; set; }
 
-        public DateTime? ConsultationDateTimeStart { get; set; }
+        public TimeOnly? ConsultationTimeStart { get; set; }
 
-        public DateTime? ConsultationDateTimeEnd { get; set; }
-        
+        public TimeOnly? ConsultationTimeEnd { get; set; }
+
+        public DateOnly? ConsultationDateStart { get; set; }
+
+        public DateOnly? ConsultationDateEnd { get; set; }
+
         public decimal? ConsultationPrice { get; set; }
 
         public string? ConsultationSymptom { get; set; }
 
         public string? ConsultationDiagnosis { get; set; }
 
-        public string? ConsultationDuration { get; set; }
+        public int? ConsultationDuration { get; set; }
 
         public string? ConsultationStatus { get; set; }
 

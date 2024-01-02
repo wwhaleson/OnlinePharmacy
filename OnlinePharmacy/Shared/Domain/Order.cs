@@ -11,7 +11,9 @@ namespace OnlinePharmacy.Shared.Domain
 
         public int OrderID { get; set; }
 
-        public decimal TotalCost { get; set; }
+        public DateTime? OrderDateTime { get; set; }
+
+        public decimal? TotalCost { get; set; }
 
         public String? PaymentType { get; set; }
 
