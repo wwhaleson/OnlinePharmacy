@@ -16,7 +16,7 @@ namespace OnlinePharmacy.Shared.Domain
 
         public string? ProductIngredients { get; set; }
 
-        public DateOnly? ProductExpiryDate { get; set; }
+        public DateTime? ProductExpiryDate { get; set; }
 
         public string? ProductDosage { get; set; }
 
