@@ -4,7 +4,7 @@ using OnlinePharmacy.Shared;
 
 namespace OnlinePharmacy.Server.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase

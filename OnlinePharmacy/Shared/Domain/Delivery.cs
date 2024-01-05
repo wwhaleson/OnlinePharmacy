@@ -1,3 +1,4 @@
+﻿
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace OnlinePharmacy.Shared.Domain
     public class Delivery
     {
         public int DeliveryID { get; set; }
-        public TimeOnly? EstimatedDeliveryTime { get; set; }
+        public DateTime? EstimatedDeliveryDate { get; set; }
 
-        public DateOnly? EstimatedDeliveryDate { get; set; }
+        public DateTime? EstimatedDeliveryTime { get; set; }
 
         public string? DeliveryStatus { get; set; }
 
@@ -23,9 +24,11 @@ namespace OnlinePharmacy.Shared.Domain
 
         public virtual Order? Order { get; set; }
 
+        
+        /*
         public int StaffID { get; set; }
 
-        public virtual Staff? Staff { get; set; }
+        public virtual Staff? Staff { get; set; }*/
 
     }
 }

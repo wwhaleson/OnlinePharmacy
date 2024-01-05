@@ -1,16 +1,21 @@
-﻿@page "/OnlineConsultation"
-<PageTitle>Online Consultation</PageTitle>
+﻿@attribute [Authorize]
+@page "/Prescription"
+<PageTitle>Prescription</PageTitle>
 
 <div class="container">
-    <div class="d-flex flex-column" id="dflexonlineappointment">
-        <h1 class="mt-5" id="onlineappointmentstatusheader">Online Appointment</h1>
+    <div class="d-flex flex-column" id="dflexPrescription">
+        <h1 class="mt-5" id="Prescriptionheader">Prescription</h1>
+        <a href="/Prescription/create" class="btn btn-secondary">
+            <span class="oi oi-plus"></span>
+            Create New Prescription
+        </a>
     </div>
 
     <hr class="text-hr" />
     <div class="table-responsive mt-5">
         <table class="table ">
             <thead class="table-light">
-                <tr id="delivertablecolumnname">
+                <tr id="Prescriptiontablecolumnname">
                     <th scope="col" class="dcol">#OnlineConsultationID</th>
                     <th scope="col" class="dcol">Date</th>
                     <th scope="col" class="dcol">Start Time</th>
@@ -19,7 +24,7 @@
                     <th scope="col" class="dcol">Status</th>
                 </tr>
             </thead>
-            <tbody id="specificdeliverrow">
+            <tbody id="Prescriptionrow">
                 <tr>
                     <td id="orderid" class="dr">123</td>
                     <td id="deliverid" class="dr">123</td>

@@ -16,11 +16,13 @@ namespace OnlinePharmacy.Shared.Domain
 
         public string? ProductIngredients { get; set; }
 
-        public DateOnly? ProductExpiryDate { get; set; }
+        public DateTime? ProductExpiryDate { get; set; }
 
         public string? ProductDosage { get; set; }
 
         public string? ProductUsage { get; set; }
+
+        public string? ProductDescription { get; set; }
 
         public Boolean? PrescriptionStatus { get; set; }
 

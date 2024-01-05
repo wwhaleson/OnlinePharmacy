@@ -1,8 +1,14 @@
-﻿@page "/DeliveryStatus"
-<PageTitle>Delivery Status</PageTitle>
+﻿@attribute [Authorize]
+@page "/OnlineConsultation"
+<PageTitle>Online Consultation</PageTitle>
+
 <div class="container">
-    <div class="d-flex flex-column" id="dflexdeliver">
-        <h1 class="mt-5" id="deliverstatusheader">Delivery Status</h1>
+    <div class="d-flex flex-column" id="dflexonlineappointment">
+        <h1 class="mt-5" id="onlineappointmentstatusheader">Online Appointment</h1>
+        <a href="/OnlineConsultation/create" class="btn btn-secondary">
+            <span class="oi oi-plus"></span>
+            Create New Booking
+        </a>
     </div>
 
     <hr class="text-hr" />
@@ -10,11 +16,11 @@
         <table class="table ">
             <thead class="table-light">
                 <tr id="delivertablecolumnname">
-                    <th scope="col" class="dcol">#Order ID</th>
-                    <th scope="col" class="dcol">#Deliver ID</th>
-                    <th scope="col" class="dcol">Est Delivery Date</th>
-                    <th scope="col" class="dcol">Est Delivery Time</th>
-                    <th scope="col" class="dcol">Delivery method</th>
+                    <th scope="col" class="dcol">#OnlineConsultationID</th>
+                    <th scope="col" class="dcol">Date</th>
+                    <th scope="col" class="dcol">Start Time</th>
+                    <th scope="col" class="dcol">End Time</th>
+                    <th scope="col" class="dcol">Duration</th>
                     <th scope="col" class="dcol">Status</th>
                 </tr>
             </thead>
@@ -27,9 +33,8 @@
                     <td id="deliverymethod" class="dr">123</td>
                     <td id="orderstatus" class="dr">
                         <select class="form-select " aria-label="Default select example">
-                            <option value="1">Packing</option>
-                            <option value="2">Delivering</option>
-                            <option value="3">Delivered</option>
+                            <option value="1">Pending</option>
+                            <option value="2">Completed</option>
                         </select>
                     </td>
                 </tr>
@@ -37,9 +42,6 @@
         </table>
     </div>
 </div>
-
-
-
 
 
 

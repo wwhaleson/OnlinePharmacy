@@ -1,3 +1,4 @@
+﻿
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +19,15 @@ namespace OnlinePharmacy.Shared.Domain
 
         public virtual Prescription? Prescription { get; set; }
 
+
         public int ProductID { get; set; }
 
         public virtual Product? Product { get; set; }
 
+        /*
         public int OrderID { get; set; }
 
-        public virtual Order? Order { get; set; }
+        public virtual Order? Order { get; set; }*/
+
     }
 }

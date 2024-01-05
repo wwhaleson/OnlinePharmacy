@@ -1,19 +1,23 @@
-﻿@page "/Vitamins"
-<PageTitle>Vitamins</PageTitle>
+﻿@attribute [Authorize]
+@page "/PrescriptionMedicine"
+<PageTitle>Prescription Medicine</PageTitle>
 
 <nav class="navbar navbar-expand-lg bg-white  ">
-    <div class="container" aria-label="breadcrumb" id="breadcrumbvitaminspagecontainer">
+    <div class="container" aria-label="breadcrumb" id="breadcrumbprescriptionmedicinecontainer">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Vitamin</li>
+            <li class="breadcrumb-item active" aria-current="page">Prescription Medicine</li>
         </ol>
     </div>
 </nav>
 
-
-<div class="container">
+<div class="container" >
     <div class="row my-3">
-        <h2 class="text-center" id="vitaminheader">Vitamin</h2>
+        <h2 class="text-center" id="prescriptionmedicineheader">Prescription Medicine</h2>
+        <a href="/PrescriptionItem/create" class="btn btn-secondary">
+            <span class="oi oi-plus"></span>
+            Create New Prescription Item
+        </a>
         <hr class="text-hr" />
     </div>
 
@@ -34,55 +38,60 @@
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col aproduct">
                     <div class="card h-100 productcard">
+                        <button type="button" class="btn-close"></button>
                         <img src="https://alcare.sg/wp-content/uploads/2019/08/PANC-1.jpg" class="catproductimage">
                         <div class="card-body productcardbody">
-                            <h3 class="productname">Panadol</h3>
-                            <h5 class="productprice">$40</h5>
-                            <a href="#" class="btn btn-primary h-50 w-75 ">ADD TO CART</a>
+                                <h2 class="productname">Ibuprofen</h2>
+                                <h4 class="productprice">$40</h4>
+                                <button class="btn btn-primary addtocartbutton" type="button" onclick="AddChangeBadge()">ADD TO CART</button>
                         </div>
                     </div>
                 </div>
                 <div class="col aproduct">
                     <div class="card h-100 productcard">
+                        <button type="button" class="btn-close" aria-label="Close"></button>
                         <img src="https://alcare.sg/wp-content/uploads/2019/08/PANC-1.jpg" class="catproductimage">
                         <div class="card-body productcardbody">
-                            <h3 class="productname">Panadol</h3>
-                            <h5 class="productprice">$10</h5>
-                            <a href="#" class="btn btn-primary h-50 w-75 ">ADD TO CART</a>
+                            <h2 class="productname">Ibuprofen</h2>
+                            <h4 class="productprice">$40</h4>
+                            <a href="#" class="btn btn-primary addtocartbutton">ADD TO CART</a>
                         </div>
                     </div>
                 </div>
                 <div class="col aproduct">
                     <div class="card h-100 productcard">
+                        <button type="button" class="btn-close" aria-label="Close"></button>
                         <img src="https://alcare.sg/wp-content/uploads/2019/08/PANC-1.jpg" class="catproductimage">
                         <div class="card-body productcardbody">
-                            <h3 class="productname">Healthy101</h3>
-                            <h5 class="productprice">$20</h5>
-                            <a href="#" class="btn btn-primary h-50 w-75 ">ADD TO CART</a>
+                            <h2 class="productname">Ibuprofen</h2>
+                            <h4 class="productprice">$40</h4>
+                            <a href="#" class="btn btn-primary addtocartbutton">ADD TO CART</a>
                         </div>
                     </div>
                 </div>
                 <div class="col aproduct">
                     <div class="card h-100 productcard">
+                        <button type="button" class="btn-close" aria-label="Close"></button>
                         <img src="https://alcare.sg/wp-content/uploads/2019/08/PANC-1.jpg" class="catproductimage">
                         <div class="card-body productcardbody">
-                            <h3 class="productname">Healthmark</h3>
-                            <h5 class="productprice">$25</h5>
-                            <a href="#" class="btn btn-primary h-50 w-75 ">ADD TO CART</a>
+                            <h2 class="productname">Ibuprofen</h2>
+                            <h4 class="productprice">$40</h4>
+                            <a class="btn btn-primary addtocartbutton">ADD TO CART</a>
                         </div>
                     </div>
                 </div>
                 <div class="col aproduct">
                     <div class="card h-100 productcard">
+                        <button type="button" class="btn-close" aria-label="Close"></button>
                         <img src="https://alcare.sg/wp-content/uploads/2019/08/PANC-1.jpg" class="catproductimage">
                         <div class="card-body productcardbody">
-                            <h3 class="productname">Ibuprofen</h3>
-                            <h5 class="productprice">$30</h5>
-                            <a href="#" class="btn btn-primary h-50 w-75 ">ADD TO CART</a>
+                            <h2 class="productname">Ibuprofen</h2>
+                            <h4 class="productprice">$40</h4>
+                            <a href="#" class="btn btn-primary addtocartbutton">ADD TO CART</a>
                         </div>
                     </div>
                 </div>
-
+ 
             </div>
 
         </div>
@@ -91,5 +100,7 @@
 </div>
 
 @code {
+   
+
 
 }
