@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlinePharmacy.Server.Data;
+using OnlinePharmacy.Server.IRepository;
 using OnlinePharmacy.Shared.Domain;
 
 namespace OnlinePharmacy.Server.Controllers
@@ -14,40 +15,33 @@ namespace OnlinePharmacy.Server.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public ProductsController(ApplicationDbContext context)
+        public ProductsController(IUnitOfWork unitOfWork)
         {
-            _context = context;
+            //_context = context;
+            _unitOfWork = unitOfWork;
         }
 
         // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProduct()
+        public async Task<IActionResult> GetProducts()
         {
-          if (_context.Product == null)
-          {
-              return NotFound();
-          }
-            return await _context.Product.ToListAsync();
+            var products = await _unitOfWork.Products.GetAll();
+            return Ok(products);
         }
 
         // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<IActionResult> GetProduct(int id)
         {
-          if (_context.Product == null)
-          {
-              return NotFound();
-          }
-            var product = await _context.Product.FindAsync(id);
-
+            var product = await _unitOfWork.Products.Get(q => q.ProductID == id);
             if (product == null)
             {
                 return NotFound();
             }
-
-            return product;
+            return Ok(product);
         }
 
         // PUT: api/Products/5
@@ -60,15 +54,15 @@ namespace OnlinePharmacy.Server.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(product).State = EntityState.Modified;
+            _unitOfWork.Products.Update(product);
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _unitOfWork.Save(HttpContext);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductExists(id))
+                if (!await ProductExists(id))
                 {
                     return NotFound();
                 }
@@ -86,12 +80,8 @@ namespace OnlinePharmacy.Server.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
-          if (_context.Product == null)
-          {
-              return Problem("Entity set 'ApplicationDbContext.Product'  is null.");
-          }
-            _context.Product.Add(product);
-            await _context.SaveChangesAsync();
+            await _unitOfWork.Products.Insert(product);
+            await _unitOfWork.Save(HttpContext);
 
             return CreatedAtAction("GetProduct", new { id = product.ProductID }, product);
         }
@@ -100,25 +90,23 @@ namespace OnlinePharmacy.Server.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
-            if (_context.Product == null)
-            {
-                return NotFound();
-            }
-            var product = await _context.Product.FindAsync(id);
+            var product = await _unitOfWork.Products.Get(q => q.ProductID == id);
             if (product == null)
             {
                 return NotFound();
             }
 
-            _context.Product.Remove(product);
-            await _context.SaveChangesAsync();
+            await _unitOfWork.Products.Delete(id);
+            await _unitOfWork.Save(HttpContext);
 
             return NoContent();
+
         }
 
-        private bool ProductExists(int id)
+        private async Task<bool> ProductExists(int id)
         {
-            return (_context.Product?.Any(e => e.ProductID == id)).GetValueOrDefault();
+            var product = await _unitOfWork.Products.Get(q => q.ProductID == id);
+            return product != null;
         }
     }
 }

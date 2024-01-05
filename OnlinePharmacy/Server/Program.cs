@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using OnlinePharmacy.Server.Data;
 using OnlinePharmacy.Server.Models;
 using Microsoft.AspNetCore.Identity;
+using OnlinePharmacy.Server.IRepository;
+using OnlinePharmacy.Server.Repository;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +25,7 @@ builder.Services.AddIdentityServer()
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
 
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddControllersWithViews().AddNewtonsoftJson(op =>
 op.SerializerSettings.ReferenceLoopHandling =
 Newtonsoft.Json.ReferenceLoopHandling.Ignore);

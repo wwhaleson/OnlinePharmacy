@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlinePharmacy.Server.Data;
+using OnlinePharmacy.Server.IRepository;
 using OnlinePharmacy.Shared.Domain;
 
 namespace OnlinePharmacy.Server.Controllers
@@ -14,61 +15,54 @@ namespace OnlinePharmacy.Server.Controllers
     [ApiController]
     public class PrescriptionItemsController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public PrescriptionItemsController(ApplicationDbContext context)
+        public PrescriptionItemsController(IUnitOfWork unitOfWork)
         {
-            _context = context;
+            //_context = context;
+            _unitOfWork = unitOfWork;
         }
 
         // GET: api/PrescriptionItems
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PrescriptionItem>>> GetPrescriptionItem()
+        public async Task<IActionResult> GetPrescriptionItems()
         {
-          if (_context.PrescriptionItem == null)
-          {
-              return NotFound();
-          }
-            return await _context.PrescriptionItem.ToListAsync();
+            var prescriptionitems = await _unitOfWork.PrescriptionItems.GetAll();
+            return Ok(prescriptionitems);
         }
 
         // GET: api/PrescriptionItems/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PrescriptionItem>> GetPrescriptionItem(int id)
+        public async Task<IActionResult> GetPrescriptionItem(int id)
         {
-          if (_context.PrescriptionItem == null)
-          {
-              return NotFound();
-          }
-            var prescriptionItem = await _context.PrescriptionItem.FindAsync(id);
-
-            if (prescriptionItem == null)
+            var prescriptionitem = await _unitOfWork.PrescriptionItems.Get(q => q.PrescriptionItemID == id);
+            if (prescriptionitem == null)
             {
                 return NotFound();
             }
-
-            return prescriptionItem;
+            return Ok(prescriptionitem);
         }
 
         // PUT: api/PrescriptionItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPrescriptionItem(int id, PrescriptionItem prescriptionItem)
+        public async Task<IActionResult> PutPrescriptionItem(int id, PrescriptionItem prescriptionitem)
         {
-            if (id != prescriptionItem.PrescriptionItemID)
+            if (id != prescriptionitem.PrescriptionItemID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(prescriptionItem).State = EntityState.Modified;
+            _unitOfWork.PrescriptionItems.Update(prescriptionitem);
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _unitOfWork.Save(HttpContext);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PrescriptionItemExists(id))
+                if (!await PrescriptionItemExists(id))
                 {
                     return NotFound();
                 }
@@ -84,41 +78,35 @@ namespace OnlinePharmacy.Server.Controllers
         // POST: api/PrescriptionItems
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<PrescriptionItem>> PostPrescriptionItem(PrescriptionItem prescriptionItem)
+        public async Task<ActionResult<PrescriptionItem>> PostPrescriptionItem(PrescriptionItem prescriptionitem)
         {
-          if (_context.PrescriptionItem == null)
-          {
-              return Problem("Entity set 'ApplicationDbContext.PrescriptionItem'  is null.");
-          }
-            _context.PrescriptionItem.Add(prescriptionItem);
-            await _context.SaveChangesAsync();
+            await _unitOfWork.PrescriptionItems.Insert(prescriptionitem);
+            await _unitOfWork.Save(HttpContext);
 
-            return CreatedAtAction("GetPrescriptionItem", new { id = prescriptionItem.PrescriptionItemID }, prescriptionItem);
+            return CreatedAtAction("GetPrescriptionItem", new { id = prescriptionitem.PrescriptionItemID }, prescriptionitem);
         }
 
         // DELETE: api/PrescriptionItems/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePrescriptionItem(int id)
         {
-            if (_context.PrescriptionItem == null)
-            {
-                return NotFound();
-            }
-            var prescriptionItem = await _context.PrescriptionItem.FindAsync(id);
-            if (prescriptionItem == null)
+            var prescriptionitem = await _unitOfWork.PrescriptionItems.Get(q => q.PrescriptionItemID == id);
+            if (prescriptionitem == null)
             {
                 return NotFound();
             }
 
-            _context.PrescriptionItem.Remove(prescriptionItem);
-            await _context.SaveChangesAsync();
+            await _unitOfWork.PrescriptionItems.Delete(id);
+            await _unitOfWork.Save(HttpContext);
 
             return NoContent();
+
         }
 
-        private bool PrescriptionItemExists(int id)
+        private async Task<bool> PrescriptionItemExists(int id)
         {
-            return (_context.PrescriptionItem?.Any(e => e.PrescriptionItemID == id)).GetValueOrDefault();
+            var prescriptionitem = await _unitOfWork.PrescriptionItems.Get(q => q.PrescriptionItemID == id);
+            return prescriptionitem != null;
         }
     }
 }

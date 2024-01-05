@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlinePharmacy.Server.Data;
+using OnlinePharmacy.Server.IRepository;
 using OnlinePharmacy.Shared.Domain;
 
 namespace OnlinePharmacy.Server.Controllers
@@ -14,40 +15,33 @@ namespace OnlinePharmacy.Server.Controllers
     [ApiController]
     public class CategoriesController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CategoriesController(ApplicationDbContext context)
+        public CategoriesController(IUnitOfWork unitOfWork)
         {
-            _context = context;
+            //_context = context;
+            _unitOfWork = unitOfWork;
         }
 
         // GET: api/Categories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategory()
+        public async Task<IActionResult> GetCategorys()
         {
-          if (_context.Category == null)
-          {
-              return NotFound();
-          }
-            return await _context.Category.ToListAsync();
+            var categorys = await _unitOfWork.Categorys.GetAll();
+            return Ok(categorys);
         }
 
         // GET: api/Categories/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id)
+        public async Task<IActionResult>GetCategory(int id)
         {
-          if (_context.Category == null)
-          {
-              return NotFound();
-          }
-            var category = await _context.Category.FindAsync(id);
-
-            if (category == null)
+            var category = await _unitOfWork.Categorys.Get(q => q.CategoryID == id);
+            if(category == null)
             {
                 return NotFound();
             }
-
-            return category;
+            return Ok(category);
         }
 
         // PUT: api/Categories/5
@@ -60,15 +54,15 @@ namespace OnlinePharmacy.Server.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(category).State = EntityState.Modified;
+            _unitOfWork.Categorys.Update(category);
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _unitOfWork.Save(HttpContext);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CategoryExists(id))
+                if (!await CategoryExists(id))
                 {
                     return NotFound();
                 }
@@ -86,12 +80,8 @@ namespace OnlinePharmacy.Server.Controllers
         [HttpPost]
         public async Task<ActionResult<Category>> PostCategory(Category category)
         {
-          if (_context.Category == null)
-          {
-              return Problem("Entity set 'ApplicationDbContext.Category'  is null.");
-          }
-            _context.Category.Add(category);
-            await _context.SaveChangesAsync();
+            await _unitOfWork.Categorys.Insert(category);
+            await _unitOfWork.Save(HttpContext);
 
             return CreatedAtAction("GetCategory", new { id = category.CategoryID }, category);
         }
@@ -100,25 +90,23 @@ namespace OnlinePharmacy.Server.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
-            if (_context.Category == null)
-            {
-                return NotFound();
-            }
-            var category = await _context.Category.FindAsync(id);
-            if (category == null)
+            var category = await  _unitOfWork.Categorys.Get(q => q.CategoryID == id);
+            if(category == null)
             {
                 return NotFound();
             }
 
-            _context.Category.Remove(category);
-            await _context.SaveChangesAsync();
-
+            await _unitOfWork.Categorys.Delete(id);
+            await _unitOfWork.Save(HttpContext);
+            
             return NoContent();
+           
         }
 
-        private bool CategoryExists(int id)
+        private async Task<bool> CategoryExists(int id)
         {
-            return (_context.Category?.Any(e => e.CategoryID == id)).GetValueOrDefault();
+            var category = await _unitOfWork.Categorys.Get(q => q.CategoryID == id);
+            return category != null;
         }
     }
 }

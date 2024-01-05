@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlinePharmacy.Server.Data;
+using OnlinePharmacy.Server.IRepository;
 using OnlinePharmacy.Shared.Domain;
 
 namespace OnlinePharmacy.Server.Controllers
@@ -14,40 +15,33 @@ namespace OnlinePharmacy.Server.Controllers
     [ApiController]
     public class DeliveriesController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public DeliveriesController(ApplicationDbContext context)
+        public DeliveriesController(IUnitOfWork unitOfWork)
         {
-            _context = context;
+            //_context = context;
+            _unitOfWork = unitOfWork;
         }
 
         // GET: api/Deliveries
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Delivery>>> GetDelivery()
+        public async Task<IActionResult> GetDeliverys()
         {
-          if (_context.Delivery == null)
-          {
-              return NotFound();
-          }
-            return await _context.Delivery.ToListAsync();
+            var deliverys = await _unitOfWork.Deliverys.GetAll();
+            return Ok(deliverys);
         }
 
         // GET: api/Deliveries/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Delivery>> GetDelivery(int id)
+        public async Task<IActionResult> GetDelivery(int id)
         {
-          if (_context.Delivery == null)
-          {
-              return NotFound();
-          }
-            var delivery = await _context.Delivery.FindAsync(id);
-
+            var delivery = await _unitOfWork.Deliverys.Get(q => q.DeliveryID == id);
             if (delivery == null)
             {
                 return NotFound();
             }
-
-            return delivery;
+            return Ok(delivery);
         }
 
         // PUT: api/Deliveries/5
@@ -60,15 +54,15 @@ namespace OnlinePharmacy.Server.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(delivery).State = EntityState.Modified;
+            _unitOfWork.Deliverys.Update(delivery);
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _unitOfWork.Save(HttpContext);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DeliveryExists(id))
+                if (!await DeliveryExists(id))
                 {
                     return NotFound();
                 }
@@ -86,12 +80,8 @@ namespace OnlinePharmacy.Server.Controllers
         [HttpPost]
         public async Task<ActionResult<Delivery>> PostDelivery(Delivery delivery)
         {
-          if (_context.Delivery == null)
-          {
-              return Problem("Entity set 'ApplicationDbContext.Delivery'  is null.");
-          }
-            _context.Delivery.Add(delivery);
-            await _context.SaveChangesAsync();
+            await _unitOfWork.Deliverys.Insert(delivery);
+            await _unitOfWork.Save(HttpContext);
 
             return CreatedAtAction("GetDelivery", new { id = delivery.DeliveryID }, delivery);
         }
@@ -100,25 +90,23 @@ namespace OnlinePharmacy.Server.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDelivery(int id)
         {
-            if (_context.Delivery == null)
-            {
-                return NotFound();
-            }
-            var delivery = await _context.Delivery.FindAsync(id);
+            var delivery = await _unitOfWork.Deliverys.Get(q => q.DeliveryID == id);
             if (delivery == null)
             {
                 return NotFound();
             }
 
-            _context.Delivery.Remove(delivery);
-            await _context.SaveChangesAsync();
+            await _unitOfWork.Deliverys.Delete(id);
+            await _unitOfWork.Save(HttpContext);
 
             return NoContent();
+
         }
 
-        private bool DeliveryExists(int id)
+        private async Task<bool> DeliveryExists(int id)
         {
-            return (_context.Delivery?.Any(e => e.DeliveryID == id)).GetValueOrDefault();
+            var delivery = await _unitOfWork.Deliverys.Get(q => q.DeliveryID == id);
+            return delivery != null;
         }
     }
 }
