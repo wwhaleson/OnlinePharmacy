@@ -1,4 +1,6 @@
 ﻿@attribute [Authorize]
+@inject HttpClient _client
+@inject IJSRuntime js
 @page "/SuccessfulPurchase"
 <PageTitle>Successful Purchase</PageTitle>
 @inject NavigationManager Navigation

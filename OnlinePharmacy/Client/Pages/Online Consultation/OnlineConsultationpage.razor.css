@@ -13,10 +13,6 @@
     border: 2px solid;
 }
 
-.text-hr {
-    width: 50%;
-    margin: auto;
-}
 
 .dcol {
     text-align: center;
@@ -26,3 +22,7 @@
     text-align: center;
 }
 
+.createonlineappointmentbutton {
+    width: 25%;
+    align-self: end;
+}

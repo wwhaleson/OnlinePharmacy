@@ -10,9 +10,9 @@ namespace OnlinePharmacy.Shared.Domain
     {
         public int PrescriptionID { get; set; }
 
-        public DateTime IssueDate { get; set; }
+        public DateTime? IssueDate { get; set; }
 
-        public DateTime ExpiryDate { get; set; }
+        public DateTime? ExpiryDate { get; set; }
 
         public int OnlineConsultationID { get; set; }
 

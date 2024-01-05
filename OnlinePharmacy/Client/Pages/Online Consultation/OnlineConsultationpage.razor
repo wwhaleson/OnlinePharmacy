@@ -1,57 +1,89 @@
 ﻿@attribute [Authorize]
+@inject HttpClient _client
+@inject IJSRuntime js
 @page "/OnlineConsultation"
 <PageTitle>Online Consultation</PageTitle>
 
 <div class="container">
     <div class="d-flex flex-column" id="dflexonlineappointment">
         <h1 class="mt-5" id="onlineappointmentstatusheader">Online Appointment</h1>
-        <a href="/OnlineConsultation/create" class="btn btn-secondary">
+        <a href="/OnlineConsultation/create" class="btn btn-secondary createonlineappointmentbutton ">
             <span class="oi oi-plus"></span>
-            Create New Booking
+            Create New Online Consultation
         </a>
     </div>
 
-    <hr class="text-hr" />
-    <div class="table-responsive mt-5">
+
+
+
+    @if(OnlineConsultations==null)
+    {
+        <div class="alert alert-info">Loading Online Consultations</div>
+    }
+    else{
+    <div class="table-responsive mt-3">
         <table class="table ">
             <thead class="table-light">
                 <tr id="delivertablecolumnname">
                     <th scope="col" class="dcol">#OnlineConsultationID</th>
-                    <th scope="col" class="dcol">Date</th>
+                    <th scope="col" class="dcol">Start Date</th>
                     <th scope="col" class="dcol">Start Time</th>
-                    <th scope="col" class="dcol">End Time</th>
-                    <th scope="col" class="dcol">Duration</th>
+                    <th scope="col" class="dcol">Platform</th>
                     <th scope="col" class="dcol">Status</th>
+                    <th scope="col" class="dcol">Actions</th>
                 </tr>
             </thead>
-            <tbody id="specificdeliverrow">
-                <tr>
-                    <td id="orderid" class="dr">123</td>
-                    <td id="deliverid" class="dr">123</td>
-                    <td id="estdeliverydate" class="dr">123</td>
-                    <td id="estdeliverytime" class="dr">123</td>
-                    <td id="deliverymethod" class="dr">123</td>
-                    <td id="orderstatus" class="dr">
-                        <select class="form-select " aria-label="Default select example">
-                            <option value="1">Pending</option>
-                            <option value="2">Completed</option>
-                        </select>
-                    </td>
-                </tr>
+            <tbody>
+                @foreach(var onlineconsultation in OnlineConsultations)
+                {
+                    <tr>
+                        <td class="dr">@onlineconsultation.OnlineConsultationID</td>
+                        <td class="dr">@onlineconsultation.ConsultationDateStart</td>
+                        <td class="dr">@onlineconsultation.ConsultationTimeStart</td>
+                        <td class="dr">@onlineconsultation.ConsultationPlatform</td>
+                        <td class="dr">@onlineconsultation.ConsultationStatus</td>
+                        <td>
+                                <a href="/onlineconsultations/view/@onlineconsultation.OnlineConsultationID" class="btn btn-primary">
+                                <span class=" oi oi-book"></span>
+                            </a>
+                                <a href="/onlineconsultations/edit/@onlineconsultation.OnlineConsultationID" class="btn btn-warning">
+                                <span class=" oi oi-pencil"></span>
+                            </a>
+                            <button class="btn btn-danger" @onclick="@(()=>Delete(onlineconsultation.OnlineConsultationID))">
+                                <span class="oi oi-delete"></span>
+                        </button>
+                        </td>
+                    </tr>
+                    
+                }               
             </tbody>
         </table>
     </div>
+    } 
 </div>
 
 
 
-
-
-
-
-
-
-
 @code {
+
+    private List<OnlineConsultation>? OnlineConsultations;
+    <!--When the page begins to load-->
+    protected async override Task OnInitializedAsync()
+    {
+        OnlineConsultations = await _client.GetFromJsonAsync<List<OnlineConsultation>>($"{Endpoints.OnlineConsultationsEndpoint}");
+    }
+    async Task Delete(int onlineconsultationId)
+    {
+        if (OnlineConsultations != null)
+        {
+            var onlineconsultation = OnlineConsultations.First(q => q.OnlineConsultationID == onlineconsultationId);
+            var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to Delete {onlineconsultation.OnlineConsultationID}?");
+            if (confirm)
+            {
+                await _client.DeleteAsync($"api/onlineconsultations/{onlineconsultationId}");
+                await OnInitializedAsync();
+            }
+        }
+    }
 
 }

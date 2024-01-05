@@ -1,5 +1,9 @@
-﻿@attribute [Authorize]
+﻿
 @page "/Vitamins"
+@inject HttpClient _client 
+@inject IJSRuntime js
+@attribute [Authorize]
+
 <PageTitle>Vitamins</PageTitle>
 
 <nav class="navbar navbar-expand-lg bg-white  ">

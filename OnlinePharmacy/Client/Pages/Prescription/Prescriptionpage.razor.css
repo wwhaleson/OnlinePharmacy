@@ -25,3 +25,8 @@
 .dr {
     text-align: center;
 }
+
+.createprescriptionbutton {
+    width: 25%;
+    align-self: end;
+}

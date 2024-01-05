@@ -28,7 +28,7 @@ namespace OnlinePharmacy.Server.Controllers
         [HttpGet]
         public async Task<IActionResult> GetDeliverys()
         {
-            var deliverys = await _unitOfWork.Deliverys.GetAll();
+            var deliverys = await _unitOfWork.Deliverys.GetAll(includes: q => q.Include(x =>x.Order));
             return Ok(deliverys);
         }
 

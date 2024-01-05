@@ -10,10 +10,6 @@
 #delivertablecolumnname {
     border:2px solid;
 }
-.text-hr {
-    width: 50%;
-    margin: auto;
-}
 
 .dcol{
     text-align:center;
@@ -21,4 +17,9 @@
 
 .dr {
     text-align: center;
+}
+
+.createdeliverybutton {
+    width: 25%;
+    align-self: end;
 }

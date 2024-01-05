@@ -28,7 +28,7 @@ namespace OnlinePharmacy.Server.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPrescriptions()
         {
-            var prescriptions = await _unitOfWork.Prescriptions.GetAll();
+            var prescriptions = await _unitOfWork.Prescriptions.GetAll(includes: q => q.Include(x =>x.OnlineConsultation));
             return Ok(prescriptions);
         }
 

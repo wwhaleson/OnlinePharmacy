@@ -72,14 +72,16 @@ namespace OnlinePharmacy.Server.Repository
 
         public async Task Save(HttpContext httpContext)
         {
+            /*
             //To be implemented
             string user = "System";
-
+            */
             var entries = _context.ChangeTracker.Entries()
                 .Where(q => q.State == EntityState.Modified ||
                     q.State == EntityState.Added);
 
             /*
+             
             foreach (var entry in entries)
             {
                 ((BaseDomainModel)entry.Entity).DateUpdated = DateTime.Now;

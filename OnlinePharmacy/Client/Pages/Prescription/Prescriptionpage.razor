@@ -1,57 +1,81 @@
 ﻿@attribute [Authorize]
+@inject HttpClient _client
+@inject IJSRuntime js
 @page "/Prescription"
 <PageTitle>Prescription</PageTitle>
 
 <div class="container">
     <div class="d-flex flex-column" id="dflexPrescription">
         <h1 class="mt-5" id="Prescriptionheader">Prescription</h1>
-        <a href="/Prescription/create" class="btn btn-secondary">
+        <a href="/Prescription/create" class="btn btn-secondary createprescriptionbutton">
             <span class="oi oi-plus"></span>
             Create New Prescription
         </a>
     </div>
-
-    <hr class="text-hr" />
-    <div class="table-responsive mt-5">
+    
+    @if (Prescriptions == null)
+    {
+        <div class="alert alert-info">Loading Prescriptions</div>
+    }
+    else{
+    <div class="table-responsive mt-3">
         <table class="table ">
             <thead class="table-light">
                 <tr id="Prescriptiontablecolumnname">
                     <th scope="col" class="dcol">#PrescriptionID</th>
-                    <th scope="col" class="dcol">Date</th>
-                    <th scope="col" class="dcol">Start Time</th>
-                    <th scope="col" class="dcol">End Time</th>
-                    <th scope="col" class="dcol">Duration</th>
-                    <th scope="col" class="dcol">Status</th>
+                    <th scope="col" class="dcol">#OnlineConsultationID</th>
+                    <th scope="col" class="dcol">Issue Date</th>
+                    <th scope="col" class="dcol">Expiry Date</th>            
+                    <th scope="col" class="dcol">Actions</th>
                 </tr>
             </thead>
-            <tbody id="Prescriptionrow">
-                <tr>
-                    <td id="orderid" class="dr">123</td>
-                    <td id="deliverid" class="dr">123</td>
-                    <td id="estdeliverydate" class="dr">123</td>
-                    <td id="estdeliverytime" class="dr">123</td>
-                    <td id="deliverymethod" class="dr">123</td>
-                    <td id="orderstatus" class="dr">
-                        <select class="form-select " aria-label="Default select example">
-                            <option value="1">Pending</option>
-                            <option value="2">Completed</option>
-                        </select>
-                    </td>
-                </tr>
+
+
+            <tbody>
+                @foreach (var prescription in Prescriptions)
+                {
+                    <tr>
+                        <td class="dr">@prescription.PrescriptionID</td>
+                        <td class="dr">@prescription.OnlineConsultationID</td>
+                        <td class="dr">@prescription.IssueDate</td>
+                        <td class="dr">@prescription.ExpiryDate</td>
+                        <td>
+                            <a href="/prescriptions/view/@prescription.PrescriptionID" class="btn btn-primary">
+                                <span class=" oi oi-book"></span>
+                            </a>
+                            <a href="/prescriptions/edit/@prescription.PrescriptionID" class="btn btn-warning">
+                                <span class=" oi oi-pencil"></span>
+                            </a>
+                            <button class="btn btn-danger" @onclick="@(()=>Delete(prescription.PrescriptionID))">
+                                <span class="oi oi-delete"></span>
+                            </button>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
-    </div>
+    </div>}
 </div>
 
-
-
-
-
-
-
-
-
-
 @code {
+    private List<Prescription>?Prescriptions;
+    <!--When the page begins to load-->
+    protected async override Task OnInitializedAsync()
+    {
+        Prescriptions = await _client.GetFromJsonAsync<List<Prescription>>($"{Endpoints.PrescriptionsEndpoint}");
+    }
+    async Task Delete(int prescriptionId)
+    {
+        if (Prescriptions != null)
+        {
+            var prescription = Prescriptions.First(q => q.PrescriptionID == prescriptionId);
+            var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to Delete {prescription.PrescriptionID}?");
+            if (confirm)
+            {
+                await _client.DeleteAsync($"api/prescriptions/{prescriptionId}");
+                await OnInitializedAsync();
+            }
+        }
+    }
 
 }
