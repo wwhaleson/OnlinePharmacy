@@ -54,7 +54,8 @@
                     }
             </tbody>
         </table>
-    </div>}
+    </div>
+    }
 </div>
 
 
@@ -75,7 +76,7 @@
             var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to Delete {delivery.DeliveryID}?");
             if (confirm)
             {
-                await _client.DeleteAsync($"api/deliverys/{deliveryId}");
+                await _client.DeleteAsync($"{Endpoints.DeliverysEndpoint}/{deliveryId}");
                 await OnInitializedAsync();
             }
         }

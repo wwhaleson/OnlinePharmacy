@@ -1,0 +1,84 @@
+﻿@attribute [Authorize]
+@inject HttpClient _client
+@inject IJSRuntime js
+@page "/OrderStatus"
+<PageTitle>Order</PageTitle>
+<div class="container">
+    <div class="d-flex flex-column" id="dflexorder">
+        <h1 class="mt-5" id="orderheader">Order</h1>
+        <a href="/Order/create" class="btn btn-secondary createorderbutton">
+            <span class="oi oi-plus"></span>
+            Create New Order
+        </a>
+    </div>
+
+    @if (Orders == null)
+    {
+        <div class="alert alert-info">Loading Orders</div>
+    }
+    else{
+    <div class="table-responsive mt-3">
+        <table class="table ">
+            <thead class="table-light">
+                <tr id="ordertablecolumnname">
+                    <th scope="col" class="dcol">#Order ID</th>
+                    <th scope="col" class="dcol">Order Date</th>
+                    <th scope="col" class="dcol">Order Time</th>
+                    <th scope="col" class="dcol">Total Cost</th>
+                    <th scope="col" class="dcol">Payment Type</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                    @foreach (var order in Orders)
+                    {
+                        <tr>
+                            <td class="dr">@order.OrderID</td>
+                            <td class="dr">@order.OrderDate</td>
+                            <td class="dr">@order.OrderTime</td>
+                            <td class="dr">@order.TotalCost</td>
+                            <td class="dr">@order.PaymentType</td>
+                            <td>
+                                <a href="/orders/view/@order.OrderID" class="btn btn-primary">
+                                    <span class=" oi oi-book"></span>
+                                </a>
+                                <a href="/orders/edit/@order.OrderID" class="btn btn-warning">
+                                    <span class=" oi oi-pencil"></span>
+                                </a>
+                                <button class="btn btn-danger" @onclick="@(()=>Delete(order.OrderID))">
+                                    <span class="oi oi-delete"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+            </tbody>
+        </table>
+    </div>
+    }
+</div>
+
+
+
+
+@code {
+    private List<Order>? Orders;
+    <!--When the page begins to load-->
+    protected async override Task OnInitializedAsync()
+    {
+        Orders = await _client.GetFromJsonAsync<List<Order>>($"{Endpoints.OrdersEndpoint}");
+    }
+    async Task Delete(int orderId)
+    {
+        if (Orders != null)
+        {
+            var order = Orders.First(q => q.OrderID == orderId);
+            var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to Delete {order.OrderID}?");
+            if (confirm)
+            {
+                await _client.DeleteAsync($"{Endpoints.OrdersEndpoint}/{orderId}");
+                await OnInitializedAsync();
+            }
+        }
+    }
+
+}

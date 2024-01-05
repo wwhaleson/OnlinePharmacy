@@ -1,0 +1,25 @@
+﻿#dflexorder {
+    justify-content: center;
+}
+#orderheader {
+    text-align: center;
+    font-weight: 800;
+    font-size: 35px;
+    font-family: "Rubik", serif;
+}
+#ordertablecolumnname {
+    border: 2px solid;
+}
+
+.dcol{
+    text-align:center;
+}
+
+.dr {
+    text-align: center;
+}
+
+.createorderbutton {
+    width: 25%;
+    align-self: end;
+}

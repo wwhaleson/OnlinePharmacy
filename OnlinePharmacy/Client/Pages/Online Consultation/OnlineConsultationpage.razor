@@ -80,7 +80,7 @@
             var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to Delete {onlineconsultation.OnlineConsultationID}?");
             if (confirm)
             {
-                await _client.DeleteAsync($"api/onlineconsultations/{onlineconsultationId}");
+                await _client.DeleteAsync($"{Endpoints.OnlineConsultationsEndpoint}/{onlineconsultationId}");
                 await OnInitializedAsync();
             }
         }

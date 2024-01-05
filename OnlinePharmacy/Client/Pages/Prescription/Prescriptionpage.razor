@@ -72,7 +72,7 @@
             var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to Delete {prescription.PrescriptionID}?");
             if (confirm)
             {
-                await _client.DeleteAsync($"api/prescriptions/{prescriptionId}");
+                await _client.DeleteAsync($"{Endpoints.PrescriptionsEndpoint}/{prescriptionId}");
                 await OnInitializedAsync();
             }
         }
