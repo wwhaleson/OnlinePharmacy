@@ -2,7 +2,7 @@
     justify-content: center;
 }
 
-#Prescriptionstatusheader {
+#Prescriptionheader {
     text-align: center;
     font-weight: 800;
     font-size: 35px;
@@ -25,4 +25,3 @@
 .dr {
     text-align: center;
 }
-
